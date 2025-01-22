@@ -1,0 +1,20 @@
+@import "./quasar.variables";
+
+.inverted-radius-box {
+  filter: url(#round);
+}
+
+.text-primary {
+  color: var(--background-color) !important;
+}
+
+.primary-btn {
+  color: $bg-primary-light;
+  background-color: $primary;
+  padding: var(--padding);
+  &--large {
+    min-height: var(--btn-height-large);
+    border-radius: 56px !important;
+    padding: var(--btn-padding-large) !important;
+  }
+}

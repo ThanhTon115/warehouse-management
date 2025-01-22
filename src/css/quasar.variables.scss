@@ -11,15 +11,73 @@
 // It's highly recommended to change the default colors
 // to match your app's branding.
 // Tip: Use the "Theme Builder" on Quasar's documentation website.
+$space-base: 16px !default;
+$space-x-base: $space-base !default;
+$space-y-base: $space-base !default;
 
-$primary   : #1976D2;
-$secondary : #26A69A;
-$accent    : #9C27B0;
+$space-none: (
+  x: 0,
+  y: 0,
+) !default;
+$space-xs: (
+  x: (
+    $space-x-base * 0.25,
+  ),
+  y: (
+    $space-y-base * 0.25,
+  ),
+) !default;
+$space-sm: (
+  x: (
+    $space-x-base * 0.5,
+  ),
+  y: (
+    $space-y-base * 0.5,
+  ),
+) !default;
+$space-md: (
+  x: $space-x-base,
+  y: $space-y-base,
+) !default;
+$space-lg: (
+  x: (
+    $space-x-base * 1.5,
+  ),
+  y: (
+    $space-y-base * 1.5,
+  ),
+) !default;
+$space-xl: (
+  x: (
+    $space-x-base * 3,
+  ),
+  y: (
+    $space-y-base * 3,
+  ),
+) !default;
 
-$dark      : #1D1D1D;
-$dark-page : #121212;
+$breakpoint-xs: 599px !default;
+$breakpoint-sm: 1023px !default;
+$breakpoint-md: 1439px !default;
+$breakpoint-lg: 1919px !default;
 
-$positive  : #21BA45;
-$negative  : #C10015;
-$info      : #31CCEC;
-$warning   : #F2C037;
+$primary: #383838;
+$secondary: #646464 !default;
+
+$bg-primary: #6b7ce8;
+$bg-primary-500: #695ebd;
+$bg-primary-light: #e6e6e7;
+
+// used by dark mode;
+$dark-page: #121212 !default;
+$dark: #1d1d1d !default;
+
+// $positive  : #21BA45 !default;
+$positive: #56c16a !default;
+$positive-050: #eaf5ea !default;
+$negative: #ff6238 !default;
+// $negative  : #DE2C00 !default;
+// $info      : #0065FF !default;
+$info: #00aafa !default;
+$info-050: #e9f6fe !default;
+$warning: #ffaa28 !default;

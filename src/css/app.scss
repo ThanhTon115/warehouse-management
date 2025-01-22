@@ -1,1 +1,71 @@
 // app global css in SCSS form
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "./quasar.variables";
+@import "./utilities";
+
+body {
+  color: var(--text-color);
+}
+
+.q-layout {
+  background: var(--bg-linear);
+  color: var(--text-primary);
+}
+
+.q-menu {
+  border-radius: 16px;
+}
+
+:root {
+  box-sizing: border-box;
+  --primary: #383838;
+  --bg-primary-light: #e6e6e7;
+  --background-color: var(--primary);
+  --text-color: var(--bg-primary-light);
+  --bg-linear: linear-gradient(
+    -145deg,
+    rgba(230, 230, 231, 1) 33%,
+    rgba(213, 216, 231, 1) 80%,
+    rgb(137, 151, 239) 100%
+  );
+
+  // --primary-color: #007bff;
+  --btn-bg-color: #383838;
+  --btn-bg-color-hover: #c9c9c9;
+  --btn-text-color: #fff;
+  --btn-text-color-hover: #fff;
+  --btn-border-color: var(--btn-bg-color);
+  --btn-border-color-hover: var(--btn-bg-color-hover);
+  --btn-height: 40px;
+  --btn-height-large: 56px;
+  --btn-padding-large: 20px 24px;
+  --padding: 12px;
+  --btn-font-size: 13px;
+  --btn-icon-size: 16px;
+
+  --text-primary: #383838;
+  --text-secondary: #646464;
+  --text-secondary--050: #848484;
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+  --background-color: var(--bg-primary-light);
+  --text-color: var(--primary);
+
+  --btn-bg-color: #fff;
+  --btn-text-color: #383838;
+
+  --bg-linear: linear-gradient(
+    -145deg,
+    rgba(56, 56, 56, 1) 33%,
+    rgba(66, 69, 90, 1) 80%,
+    rgba(37, 44, 94, 1) 100%
+  );
+
+  --text-primary: #ffffff;
+  --text-secondary: #d8d8d8;
+  // --primary-color: #6200ea;
+}

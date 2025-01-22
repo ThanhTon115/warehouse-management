@@ -1,0 +1,16 @@
+.inverted-radius-box {
+  position: relative;
+  width: 80%;
+  min-height: 200px;
+  background-color: #3498db;
+  margin-top: 112px;
+  border-radius: 24px;
+  div {
+    position: relative;
+    width: 80%;
+    height: 56px;
+    top: -24px;
+    margin: auto;
+    background: inherit;
+  }
+}

@@ -1,102 +1,36 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
-      <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
-
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
-      </q-toolbar>
-    </q-header>
-
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-    >
-      <q-list>
-        <q-item-label
-          header
-        >
-          Essential Links
-        </q-item-label>
-
-        <EssentialLink
-          v-for="link in linksList"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
-    </q-drawer>
-
-    <q-page-container>
+  <q-layout :data-theme="dataTheme" class="overflow-hidden">
+    <MainHeader :style="paddingStyle" />
+    <LeftSideBar />
+    <MyNotification />
+    <q-page-container v-bind:style="{ ...paddingStyle, paddingTop: '66px' }">
       <router-view />
     </q-page-container>
   </q-layout>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import EssentialLink, { type EssentialLinkProps } from 'components/EssentialLink.vue';
+import { computed, ref } from "vue";
+import LeftSideBar from "src/components/layout/main/LeftSideBar.vue";
+import { useQuasar } from "quasar";
+import useGlobalStore from "src/stores/useGlobalStore";
+import MainHeader from "src/components/layout/main/MainHeader.vue";
+import MyNotification from "src/modules/notification/component/MyNotification.vue";
+import useNotificationStore from "src/modules/notification/stores/useNotificationStore";
 
-const linksList: EssentialLinkProps[] = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
-  }
-];
-
-const leftDrawerOpen = ref(false);
-
-function toggleLeftDrawer () {
-  leftDrawerOpen.value = !leftDrawerOpen.value;
-}
+const $q = useQuasar();
+const globalStore = useGlobalStore();
+const notificationStore = useNotificationStore();
+const dataTheme = computed(() => (globalStore.theme.dark ? "dark" : null));
+const paddingStyle = computed(() => {
+  return {
+    marginInline: $q.screen.lt.md
+      ? "16px"
+      : globalStore.leftDrawerMini
+        ? `124px ${notificationStore.popupVisible ? "416px" : "16px"}`
+        : `300px ${notificationStore.popupVisible ? "416px" : "16px"}`,
+    zIndex: 1000,
+    transition: "margin 0.3s !important",
+  };
+});
 </script>
