@@ -1,10 +1,11 @@
-import { Config } from "./config";
-
-const AppLocale = `${Config.appName}-locale`;
+import useGlobalStore, {
+  LOCAL_STORAGE_LOCALE,
+} from "src/stores/useGlobalStore";
 
 export const getAppLocale = (): string | null =>
-  localStorage.getItem(AppLocale);
+  localStorage.getItem(LOCAL_STORAGE_LOCALE);
 
 export const setAppLocale = (locale: string): void => {
-  localStorage.setItem(AppLocale, locale);
+  useGlobalStore().setLocale(locale);
+  localStorage.setItem(LOCAL_STORAGE_LOCALE, locale);
 };

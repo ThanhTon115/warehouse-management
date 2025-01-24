@@ -22,7 +22,7 @@
             :style="customizedStyles[index]"
             :key="noti.id"
             :model-value="noti"
-            :class="`text-black bg-slate-400/10 rounded-xl p-4 transition-all mb-2`"
+            :class="`text-black bg-slate-400/10 rounded-xl p-4 transition-all duration-300 ease-linear mb-2`"
           >
             {{ noti.description }}
           </NotificationItem>

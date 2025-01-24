@@ -69,6 +69,7 @@ export const ICON_READ_NOTIFICATION =
   "svguse:/icons.svg#icon-read-notification";
 export const ICON_UNREAD_NOTIFICATION =
   "svguse:/icons.svg#icon-unread-notification";
+export const ICON_LANGUAGE = "svguse:/icons.svg#icon-language";
 export const ICON_SUN = "/img/sun.svg";
 export const ICON_MOON = "/img/moon.svg";
 export const ICON_STAR_SKY = "/img/star-sky.svg";

@@ -15,6 +15,10 @@ export default {
   label: {
     back_to_home: "Về trang chủ",
     notification: "Thông báo",
+    language: {
+      vi: "Tiếng Việt",
+      en: "Tiếng Anh",
+    },
   },
   failed: "Thất bại",
   success: "Thành công",

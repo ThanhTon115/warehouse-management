@@ -7,6 +7,7 @@ export const LOCAL_STORAGE_PROFILE_CACHE = "localstorage_profile_cache";
 export const LOCAL_STORAGE_LEFT_DRAWER_MINI = "local_storage_left_drawer_mini";
 export const LOCAL_STORAGE_USER_BEHAVIOR = "local_storage_user_behavior";
 export const LOCAL_STORAGE_THEME = "local_storage_theme";
+export const LOCAL_STORAGE_LOCALE = "local_storage_locale";
 
 type GlobalState = {
   loading: boolean;
@@ -30,13 +31,14 @@ export default defineStore("global", {
       localStorage.getItem(LOCAL_STORAGE_LEFT_DRAWER_MINI) || "false";
     const userBehavior = localStorage.getItem(LOCAL_STORAGE_USER_BEHAVIOR);
     const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME);
+    const defaultLocale = localStorage.getItem(LOCAL_STORAGE_LOCALE);
     return {
       loading: false,
       loadingBar: false,
       //   account: null,
       leftDrawerVisible: true,
       leftDrawerMini: leftDrawerMini === "true",
-      currentLocale: Config.locale,
+      currentLocale: defaultLocale ?? Config.locale,
       genders: ["male", "female"],
       theme: getDefaultTheme({ dark: defaultTheme === "true" }),
       imageCache: {},
@@ -102,6 +104,10 @@ export default defineStore("global", {
         LOCAL_STORAGE_THEME,
         this.$state.theme.dark ? "true" : "false",
       );
+    },
+    setLocale(payload: string) {
+      this.$state.currentLocale = payload;
+      localStorage.setItem(LOCAL_STORAGE_LOCALE, payload);
     },
   },
 });

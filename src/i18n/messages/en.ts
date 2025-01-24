@@ -12,9 +12,13 @@ export default {
     ...user.route,
     [ROUTE_HOMEPAGE]: "Home",
   },
-  laebl: {
+  label: {
     back_to_home: "Back to home",
     notification: "Notifications",
+    language: {
+      vi: "Vietnamese",
+      en: "English",
+    },
   },
   failed: "Action failed",
   success: "Action was successful",

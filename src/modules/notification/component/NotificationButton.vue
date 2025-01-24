@@ -31,10 +31,7 @@
   ></CustomizedDialog> -->
 </template>
 <script setup lang="ts">
-import { QBtn } from "quasar";
 import { ICON_NOTIFICATION } from "src/shared/themes/types";
-import { ref } from "vue";
-import { useI18n } from "vue-i18n";
 import useNotificationStore from "../stores/useNotificationStore";
 const notificationStore = useNotificationStore();
 

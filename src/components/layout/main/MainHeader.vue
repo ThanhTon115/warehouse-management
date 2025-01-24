@@ -35,6 +35,7 @@
       </div>
       <ThemeToggle />
       <div class="flex items-center justify-between gap-4">
+        <LanguageSelect />
         <NotificationButton />
         <UserMenu />
       </div>
@@ -62,6 +63,7 @@ import XBtn from "src/components/core/button/XBtn.vue";
 import ThemeToggle from "./header/ThemeToggle.vue";
 import UserMenu from "./UserMenu.vue";
 import NotificationButton from "src/modules/notification/component/NotificationButton.vue";
+import LanguageSelect from "./header/LanguageSelect.vue";
 
 const props = defineProps<{ class?: ClassProp; style?: StyleValue }>();
 

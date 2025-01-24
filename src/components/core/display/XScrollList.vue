@@ -28,11 +28,11 @@ const setRef = (val: any) => {
   }
 };
 const calcStyle = (item: any) => {
-  const itemHeight = item.clientHeight * 0.5;
+  const itemHeight = item.clientHeight;
   const breakpointValue = {
     top:
       refVal.value.scrollTop > 0
-        ? item.offsetTop - itemHeight / 2 - refVal.value.scrollTop
+        ? item.offsetTop - itemHeight / 4 - refVal.value.scrollTop
         : 0,
     bottom:
       refVal.value.scrollTop +
@@ -60,7 +60,12 @@ const onScroll = throttle(() => {
     Object.values(refVal.value?.children)?.forEach(
       (item: any, index: number) => {
         if (item) {
-          customizedStyles[index] = calcStyle(item);
+          customizedStyles[index] = {
+            ...calcStyle(item),
+            ...(index === Object.values(refVal.value?.children)?.length - 1
+              ? { marginBottom: `${item.clientHeight / 4}px` }
+              : {}),
+          };
         }
       },
     );
